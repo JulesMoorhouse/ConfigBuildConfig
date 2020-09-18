@@ -13,17 +13,26 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.1141" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ClientResources\" />
     <Folder Include="ClientResources\myfolder\" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="ClientResources\myfolder\config.json" />
-    <None Remove="ClientResources\myfolder\config-staging.json" />
+    <None Remove="ClientResources\myfolder\config.json" Condition="'$(Configuration)' != 'Debug-Staging'" />
+    <None Remove="ClientResources\myfolder\config-staging.json" Condition="'$(Configuration)' == 'Debug-Staging'" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ClientResources\myfolder\config.json" />
-    <EmbeddedResource Include="ClientResources\myfolder\config-staging.json" />
+    <None Include="ClientResources\myfolder\config.json" Condition="'$(Configuration)' != 'Debug-Staging'" />
+    <None Include="ClientResources\myfolder\config-staging.json" Condition="'$(Configuration)' == 'Debug-Staging'">
+        <LogicalName>config.json</LogicalName>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ClientResources\myfolder\config.json" Condition="'$(Configuration)' != 'Debug-Staging'" />
+    <EmbeddedResource Include="ClientResources\myfolder\config-staging.json" Condition="'$(Configuration)' == 'Debug-Staging'">
+        <LogicalName>config.json</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
