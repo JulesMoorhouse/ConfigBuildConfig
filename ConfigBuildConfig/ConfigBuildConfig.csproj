@@ -24,8 +24,8 @@
     <None Remove="ClientResources\myfolder\config-staging.json" Condition="'$(Configuration)' == 'Debug-Staging'" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClientResources\myfolder\config.json" Condition="'$(Configuration)' != 'Debug-Staging'" />
-    <None Include="ClientResources\myfolder\config-staging.json" Condition="'$(Configuration)' == 'Debug-Staging'">
+    <None Include="ClientResources\myfolder\config.json" />
+    <None Include="ClientResources\myfolder\config-staging.json">
         <LogicalName>config.json</LogicalName>
     </None>
   </ItemGroup>
