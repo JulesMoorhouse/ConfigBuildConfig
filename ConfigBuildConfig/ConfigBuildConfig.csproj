@@ -10,6 +10,16 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug-Staging|AnyCPU' ">
+    <DebugType></DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug-Staging</OutputPath>
+    <DefineConstants></DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <IntermediateOutputPath>obj\Debug-Staging</IntermediateOutputPath>
+    <NoWarn></NoWarn>
+    <NoStdLib>false</NoStdLib>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.1141" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
@@ -20,19 +30,16 @@
     <Folder Include="ClientResources\myfolder\" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="ClientResources\myfolder\config.json" Condition="'$(Configuration)' != 'Debug-Staging'" />
-    <None Remove="ClientResources\myfolder\config-staging.json" Condition="'$(Configuration)' == 'Debug-Staging'" />
+    <None Remove="ClientResources\myfolder\config.json" />
+    <None Remove="ClientResources\myfolder\config-staging.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClientResources\myfolder\config.json" />
-    <None Include="ClientResources\myfolder\config-staging.json">
-        <LogicalName>config.json</LogicalName>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ClientResources\myfolder\config.json" Condition="'$(Configuration)' != 'Debug-Staging'" />
     <EmbeddedResource Include="ClientResources\myfolder\config-staging.json" Condition="'$(Configuration)' == 'Debug-Staging'">
-        <LogicalName>config.json</LogicalName>
+      <LogicalName>ConfigBuildConfig.ClientResources.myfolder.config.json</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
 </Project>
