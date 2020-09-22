@@ -13,6 +13,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug-Staging|AnyCPU' ">
     <DebugType></DebugType>
     <Optimize>false</Optimize>
+    <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\Debug-Staging</OutputPath>
     <DefineConstants></DefineConstants>
     <WarningLevel>4</WarningLevel>
